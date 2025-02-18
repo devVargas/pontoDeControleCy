@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "module": "ESNext",
+      "target": "ES2022", 
+      "lib": ["es6", "dom"], 
+      "types": ["cypress", "node"], 
+      "moduleResolution": "node", 
+      "strict": true, 
+      "esModuleInterop": true, 
+      "skipLibCheck": true, 
+      "rootDir": "./" 
+    },
+    "include": ["**/*.ts"], 
+    "exclude": ["node_modules"] 
+  }
