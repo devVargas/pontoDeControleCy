@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { tag } from "../helpers/points.js";
+import { acess } from "../../data/acess";
 
 Cypress.Commands.add("weighings", () => {
   cy
@@ -13,7 +13,7 @@ Cypress.Commands.add("concierge", () => {
     .visit("http://127.0.0.1:4040")
     .get("input[placeholder=\"TAG 1\"]")
     .eq(2)
-    .type(tag)
+    .type(acess[0].tag as string)
     .get("div.rounded-lg")
     .filter(":contains(\"Portaria Ent/Sai\")")
     .first()

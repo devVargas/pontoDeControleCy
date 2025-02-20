@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { conferenceButton } from "../helpers/points.js";
+import { acess } from "../../data/acess";
 
 Cypress.Commands.add("managePlate", (plate: string) => {
   cy
@@ -102,7 +102,7 @@ Cypress.Commands.add("manageProduct", (product: string) => {
 });
 
 Cypress.Commands.add("manageConference", (conference: string) => {
-  if(conference === conferenceButton.modulo1){
+  if(conference === acess[1].conferenceButton?.modulo1){
     cy.log("ok");
   }else {
     cy
