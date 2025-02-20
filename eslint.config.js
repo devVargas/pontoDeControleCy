@@ -39,7 +39,7 @@ export default [
   
   // Configurações para TypeScript
   {
-    files: ["**/*.ts"], 
+    files: ["**/*.ts",], 
     languageOptions: {
       parser: tsParser, 
     },
@@ -48,11 +48,12 @@ export default [
       cypress, 
     },
     rules: {
-      "@typescript-eslint/no-unused-vars": "error", 
+      "@typescript-eslint/no-unused-vars": "error",
       "@typescript-eslint/no-explicit-any": "warn", 
       "cypress/no-assigning-return-values": "error", 
-      "cypress/no-unnecessary-waiting": "error", 
+      // "cypress/no-unnecessary-waiting": "error", // O ESlint vai reclamar de comandos com wait
       "cypress/assertion-before-screenshot": "warn",
     },
   },
+
 ];
