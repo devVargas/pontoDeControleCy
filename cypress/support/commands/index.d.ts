@@ -10,6 +10,7 @@ declare namespace Cypress {
         selectList(listItem: string): Chainable<JQuery<HTMLElement>>; 
         saveButton(): Chainable<void>;
         forwardButton(): Chainable<void>;
+        navigateToMenu(menu: string): Chainable<void>;
 
         // commandsNewAcess
         managePlate(plate: string): Chainable<JQuery<HTMLElement>> | Chainable<void>;

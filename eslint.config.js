@@ -48,7 +48,8 @@ export default [
       cypress, 
     },
     rules: {
-      "@typescript-eslint/no-unused-vars": "error",
+      "no-unused-vars": "off",
+      // "@typescript-eslint/no-unused-vars": "error",
       "@typescript-eslint/no-explicit-any": "warn", 
       "cypress/no-assigning-return-values": "error", 
       // "cypress/no-unnecessary-waiting": "error", // O ESlint vai reclamar de comandos com wait

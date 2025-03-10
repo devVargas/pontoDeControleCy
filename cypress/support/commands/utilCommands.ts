@@ -15,11 +15,11 @@ Cypress.Commands.add("login", () => {
     .visit("/")
     .closeLicense();
   cy
-    .get("input.app-input[name=\"username\"]")
+    .get("input[name=\"username\"]")
     .type(user)
-    .get("input.app-input[name=\"password\"]")
+    .get("input[name=\"password\"]")
     .type(password, { log: false })
-    .get("form > .flex > .shadow-material")
+    .get(".flex > .el-button")
     .click();
 });
 
@@ -47,4 +47,27 @@ Cypress.Commands.add("forwardButton", () => {
     .should("not.be.disabled")
     .contains("Avançar")
     .click();
+});
+
+Cypress.Commands.add("navigateToMenu", (menu: string,) => {
+  cy
+    .contains("a", `${menu}`)
+    .click()
+    .get("body").then(($body) => {
+      if ($body.find("ul").length > 0) {
+        cy.get("ul").then(($ul) => {
+          if ($ul.is(":visible")) {
+            cy
+              .get("ul")
+              .should("be.visible")
+              .log("Ul visivel");
+            // .get(`ul.submenu a[href=\"/cadastros/${subMenu}/\"]`)
+          }
+        });
+        
+      } else {
+        cy.log("A <ul> não foi exibida após o clique.");
+        // cy.url().should('include', 'pagina-esperada');
+      }
+    });
 });
