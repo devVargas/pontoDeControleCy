@@ -48,26 +48,3 @@ Cypress.Commands.add("forwardButton", () => {
     .contains("Avançar")
     .click();
 });
-
-Cypress.Commands.add("navigateToMenu", (menu: string,) => {
-  cy
-    .contains("a", `${menu}`)
-    .click()
-    .get("body").then(($body) => {
-      if ($body.find("ul").length > 0) {
-        cy.get("ul").then(($ul) => {
-          if ($ul.is(":visible")) {
-            cy
-              .get("ul")
-              .should("be.visible")
-              .log("Ul visivel");
-            // .get(`ul.submenu a[href=\"/cadastros/${subMenu}/\"]`)
-          }
-        });
-        
-      } else {
-        cy.log("A <ul> não foi exibida após o clique.");
-        // cy.url().should('include', 'pagina-esperada');
-      }
-    });
-});

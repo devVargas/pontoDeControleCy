@@ -1,22 +1,24 @@
 import { RegistrationPage } from "../support/pageObject/RegistrationPage";
 
+export type FormData = Record<string, string | number | object>;
+
 interface CadastroItem {
   interface: string;
-  data: Record<string, string | number | object>;
-  fillForm: (data: Record<string, string | number | object>) => void;
+  data: FormData;
+  fillForm(data: FormData): void;
 }
 
 export const cadastros: CadastroItem[] = [
   {
     interface: "motoristas",
     data: {
-      tag: "crachá 1234",
-      description: "Observação Motorista",
       name: "João12",
       cpf: "00011122233",
-      code: "0001",
+      license: "00011122288",
       phone: "99999999999",
-      license: "00011122288"
+      description: "Observação Motorista",
+      code: "0001",
+      tag: "crachá 1234"
     },
     fillForm: RegistrationPage.fillForm  
   },
@@ -31,29 +33,29 @@ export const cadastros: CadastroItem[] = [
   {
     interface: "veiculos",
     data: {
-      code: "0001",
-      description: "Observação Veiculo",
       plateNumber: "ABC1214",
-      year: "2022",
       vehicleType: {
         name: "Caminhão",
-        description: "Bitrem",
-        maxLoad: "74000"
+        maxLoad: "74000",
+        description: "Bitrem"
       },
-      axes: "9"
+      code: "0001",
+      description: "Observação Veiculo",
+      year: "2022",
+      axes: "9",
     },
     fillForm: RegistrationPage.fillForm 
   },
   {
     interface: "produtos",
     data: {
-      name: "Milho",
+      name: "Milho1",
+      code: "00011",
       description: "Observação Produto",
-      code: "0001",
-      productType: {
-        code: "0001",
+      variety: {
+        tab: "varieties",
         description: "Milho Variety",
-        fillForm: RegistrationPage.fillForm 
+        code: "0001"
       }
     },
     fillForm: RegistrationPage.fillForm 
@@ -70,20 +72,17 @@ export const cadastros: CadastroItem[] = [
     interface: "lavouras",
     data: {
       code: "0001",
-      description: "Observação Lavoura"
+      description: "Observação Lavoura",
+      fields: {
+        tab: "fields",
+        description: "Observação Campo",
+        code: "0001"
+      }
     },
     fillForm: RegistrationPage.fillForm 
   },
   {
-    interface: "campo",
-    data: {
-      code: "0001",
-      description: "Talhão 01/1"
-    },
-    fillForm: RegistrationPage.fillForm 
-  },
-  {
-    interface: "filiais",
+    interface: "empresas",
     data: {
       code: "0001",
       description: "Empresa de Teste"
@@ -93,18 +92,16 @@ export const cadastros: CadastroItem[] = [
   {
     interface: "transportadoras",
     data: {
-      code: "0001",
-      description: "Observação Transportadora",
       name: "Transportadora Teste",
-      cnpj: "03.299.514/0001-88"
+      code: "0001",
+      cnpj: "03.299.514/0001-88",
+      description: "Observação Transportadora"
     },
     fillForm: RegistrationPage.fillForm 
   },
   {
-    interface: "business",
+    interface: "parceiros",
     data: {
-      code: "0001",
-      description: "Observação Parceiros",
       tradeName: "Parceiro Teste",
       legalName: "PRC Teste",
       cnpj: "32.791.502/0001-74",
@@ -112,6 +109,8 @@ export const cadastros: CadastroItem[] = [
       address: "Av. Antônio Frederico Ozanam, 217",
       city: "Canoas",
       state: "RS",
+      code: "0001",
+      description: "Observação Parceiros"
     },
     fillForm: RegistrationPage.fillForm 
   }
