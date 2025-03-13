@@ -5,6 +5,7 @@ export type FormData = Record<string, string | number | object>;
 interface CadastroItem {
   interface: string;
   data: FormData;
+  placeHolder: object;
   fillForm(data: FormData): void;
 }
 
@@ -12,13 +13,19 @@ export const cadastros: CadastroItem[] = [
   {
     interface: "motoristas",
     data: {
-      name: "João12",
+      name: "João",
       cpf: "00011122233",
       license: "00011122288",
       phone: "99999999999",
       description: "Observação Motorista",
       code: "0001",
       tag: "crachá 1234"
+    },
+    get placeHolder() {
+      return {
+        "Nome": this.data.name,
+        "CPF": this.data.cpf
+      };
     },
     fillForm: RegistrationPage.fillForm  
   },
@@ -27,6 +34,12 @@ export const cadastros: CadastroItem[] = [
     data: {
       code: "0001",
       description: "Safra 2025/01"
+    },
+    get placeHolder() {
+      return {
+        "Código": this.data.code,
+        "Descrição": this.data.description
+      };
     },
     fillForm: RegistrationPage.fillForm 
   },
@@ -44,6 +57,11 @@ export const cadastros: CadastroItem[] = [
       year: "2022",
       axes: "9",
     },
+    get placeHolder() {
+      return {
+        "Placa": this.data.plateNumber,
+      };
+    },
     fillForm: RegistrationPage.fillForm 
   },
   {
@@ -58,6 +76,12 @@ export const cadastros: CadastroItem[] = [
         code: "0001"
       }
     },
+    get placeHolder() {
+      return {
+        "Código": this.data.code,
+        "Produto": this.data.name
+      };   
+    },
     fillForm: RegistrationPage.fillForm 
   },
   {
@@ -65,6 +89,11 @@ export const cadastros: CadastroItem[] = [
     data: {
       code: "0001",
       description: "Observação Operação"
+    },
+    get placeHolder() {
+      return {
+        "":""
+      };
     },
     fillForm: RegistrationPage.fillForm 
   },
@@ -79,6 +108,12 @@ export const cadastros: CadastroItem[] = [
         code: "0001"
       }
     },
+    get placeHolder() {
+      return {
+        "Código": this.data.code,
+        "Nome": this.data.description
+      };
+    },
     fillForm: RegistrationPage.fillForm 
   },
   {
@@ -86,6 +121,12 @@ export const cadastros: CadastroItem[] = [
     data: {
       code: "0001",
       description: "Empresa de Teste"
+    },
+    get placeHolder() {
+      return {
+        "Código": this.data.code,
+        "Nome": this.data.description
+      };
     },
     fillForm: RegistrationPage.fillForm 
   },
@@ -97,6 +138,13 @@ export const cadastros: CadastroItem[] = [
       cnpj: "03.299.514/0001-88",
       description: "Observação Transportadora"
     },
+    get placeHolder() {
+      return {
+        "Código": this.data.code,
+        "Nome": this.data.name,
+        "CNPJ": this.data.cnpj
+      };
+    },  
     fillForm: RegistrationPage.fillForm 
   },
   {
@@ -111,6 +159,14 @@ export const cadastros: CadastroItem[] = [
       state: "RS",
       code: "0001",
       description: "Observação Parceiros"
+    },
+    get placeHolder() {
+      return {
+        "Código": this.data.code,
+        "Razão Social": this.data.legalName,
+        "Nome Fantasia": this.data.tradeName,
+        "CNPJ": this.data.cnpj
+      };
     },
     fillForm: RegistrationPage.fillForm 
   }

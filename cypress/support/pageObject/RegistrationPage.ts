@@ -114,4 +114,17 @@ export class RegistrationPage {
       });
   }
 
+  public static validateFilter(placeHolder: object) {
+    Object.entries(placeHolder).forEach(([key, value]) => {
+      cy
+        .get(`input[placeholder="${key}"]`)
+        .type(value)
+        .should("be.visible")
+        .wait(1000)
+        .get("table.el-table__body")
+        .contains(value)
+        .should("be.visible");
+    });
+  }
+
 }
