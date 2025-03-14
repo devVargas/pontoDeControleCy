@@ -83,26 +83,39 @@ export class RegistrationPage {
             `${capitalizedName} criado com sucesso`,
             "Tipo de veículo criado com sucesso",
             "Operação criada com sucesso",
-            "Filial criada com sucesso"
+            "Filial criada com sucesso",
+            `${capitalizedName} atualizado com sucesso`,
+            `${capitalizedName} atualizada com sucesso`,
+            "Parceiro atualizado com sucesso",
+            "Veículo salvo com sucesso",
+            "Operação atualizada com sucesso",
+            "Filial editada com sucesso",
+            "Transportadora editada com sucesso",
+            `${capitalizedName} excluida com sucesso`,
+            "Veículo excluido com sucesso!",
+            "Produto deletado com sucesso",
+            "Operação de produto deletado com sucesso",
+            "Deletado com sucesso",
+            "Parceiro excluido com sucesso",
           ];
           
           const messageFound = expectedMessage.some((message) => alertMessage.includes(message));
           expect(messageFound).to.be.true;
-          cy.log("Item criado com sucesso");
+          cy.log("A mensagem de sucesso foi exibida");
           break;
         }
-  
+        
         case alertClass.includes("el-message--error"):{
           const expectedMessage = [
             `Erro: ${capitalizedName} já cadastrado.`,
             `Erro ao criar ${singularName}`,
             "Erro ao salvar Veículo",
-            "Erro: Filial já cadastrada."
+            "Erro: Filial já cadastrada.",
           ];
 
           const messageFound = expectedMessage.some((message) => alertMessage.includes(message));
           expect(messageFound).to.be.true;
-          cy.log("Erro: Item já cadastrado");
+          cy.log("A mensagem de erro foi exibida");
           break;
         }
 
@@ -125,6 +138,92 @@ export class RegistrationPage {
         .contains(value)
         .should("be.visible");
     });
+  }
+
+  public static editButton(singlarName: string, submenu: string, data: FormData) {
+
+    switch(submenu){
+    case "veiculos":
+      cy.get("button[title=\"editar veículo\"]")
+        .eq(0)
+        .click({force:true})
+        .wait(1000)
+        .url()
+        .should("include", `/cadastros/${submenu}`)
+        .get("input.el-input__inner")
+        .eq(2)
+        .clear()
+        .type(`${data.code}1`)
+        .saveButton();
+      return;
+
+    case "operacoes":
+      cy.get("button[title=\"editar produto\"]")
+        .eq(0)
+        .click({force:true})
+        .wait(1000)
+        .url()
+        .should("include", `/cadastros/${submenu}`)
+        .get("input.el-input__inner")
+        .eq(0)
+        .clear()
+        .type(`${data.code}1`)
+        .saveButton();
+      return;
+
+    default:
+      cy
+        .get(`button[title="editar ${singlarName}"]`)      
+        .eq(0)
+        .click({force:true})
+        .wait(1000)
+        .url()
+        .should("include", `/cadastros/${submenu}`)
+        .get("input.el-input__inner")
+        .eq(0)
+        .clear()
+        .type(`${data.name}1`)
+        .saveButton();
+    }
+  }
+
+  public static deleteButton(singularName: string, submenu: string) {
+
+    switch(submenu){
+    case "veiculos":
+      cy.get("button[title=\"Excluir Veículo\"]")
+        .eq(0)
+        .click({force:true})
+        .then(() =>{
+          cy
+            .contains("button", "Ok")
+            .click({force:true});
+        });
+      return;
+
+    case "produtos":
+    case "operacoes":  
+      cy.get("button[title=\"Excluir Produto\"]")
+        .eq(0)
+        .click({force:true})
+        .then(() =>{
+          cy
+            .contains("button", "Ok")
+            .click({force:true});
+        });
+      return;
+
+    default:
+      cy
+        .get(`button[title="Excluir ${singularName}"]`)
+        .eq(0)
+        .click({force:true})
+        .then(() =>{
+          cy
+            .contains("button", "Ok")
+            .click({force:true});
+        });
+    }
   }
 
 }

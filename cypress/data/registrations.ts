@@ -150,7 +150,7 @@ export const cadastros: CadastroItem[] = [
   {
     interface: "parceiros",
     data: {
-      tradeName: "Parceiro Teste",
+      name: "Parceiro Teste",
       legalName: "PRC Teste",
       cnpj: "32.791.502/0001-74",
       ie: "555757038527",
