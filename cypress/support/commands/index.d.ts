@@ -10,16 +10,13 @@ declare namespace Cypress {
         selectList(listItem: string): Chainable<JQuery<HTMLElement>>; 
         saveButton(): Chainable<void>;
         forwardButton(): Chainable<void>;
+        applyButton(): Chainable<void>;
 
         // commandsNewAcess
         managePlate(plate: string): Chainable<JQuery<HTMLElement>> | Chainable<void>;
         manageDriver(driver: string): Chainable<JQuery<HTMLElement>> | Chainable<void>;
         manageProduct(product: string): Chainable<JQuery<HTMLElement>>;
         manageConference(conference: string): Chainable<void>;
-
-        // formsDevices
-        fillAddressPort(index: number, ip: string, port: string): Chainable<void>;
-        clickSwitch(index: number): Chainable<void>;
 
         // simulations
         // weighings(): Chainable<void>;

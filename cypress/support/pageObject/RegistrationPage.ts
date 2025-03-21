@@ -5,8 +5,7 @@ import { FormData } from "../../data/registrations";
 export class RegistrationPage {
 
   public static navigateToRegistration(menu: string) {
-    cy
-      .contains("a", "Cadastro")
+    cy.contains("a", "Cadastro")
       .click()
       .get(`ul.submenu a.item-menu[href="/cadastros/${menu}/"]`)
       .should("be.visible")
@@ -14,8 +13,7 @@ export class RegistrationPage {
   }
 
   public static navigateToCreate(menu: string) {
-    cy
-      .get("button.el-button.el-button--primary.is-round")
+    cy.get("button.el-button.el-button--primary.is-round")
       .contains("Novo")
       .click()
       .url()
@@ -129,8 +127,7 @@ export class RegistrationPage {
 
   public static validateFilter(placeHolder: object) {
     Object.entries(placeHolder).forEach(([key, value]) => {
-      cy
-        .get(`input[placeholder="${key}"]`)
+      cy.get(`input[placeholder="${key}"]`)
         .type(value)
         .should("be.visible")
         .wait(1000)
@@ -172,8 +169,7 @@ export class RegistrationPage {
       return;
 
     default:
-      cy
-        .get(`button[title="editar ${singlarName}"]`)      
+      cy.get(`button[title="editar ${singlarName}"]`)      
         .eq(0)
         .click({force:true})
         .wait(1000)
@@ -214,8 +210,7 @@ export class RegistrationPage {
       return;
 
     default:
-      cy
-        .get(`button[title="Excluir ${singularName}"]`)
+      cy.get(`button[title="Excluir ${singularName}"]`)
         .eq(0)
         .click({force:true})
         .then(() =>{

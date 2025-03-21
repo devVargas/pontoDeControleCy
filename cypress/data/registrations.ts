@@ -10,6 +10,7 @@ interface CadastroItem {
 }
 
 export const cadastros: CadastroItem[] = [
+
   {
     interface: "motoristas",
     data: {
@@ -170,4 +171,5 @@ export const cadastros: CadastroItem[] = [
     },
     fillForm: RegistrationPage.fillForm 
   }
+  
 ];

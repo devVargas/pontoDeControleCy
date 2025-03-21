@@ -48,3 +48,10 @@ Cypress.Commands.add("forwardButton", () => {
     .contains("Avançar")
     .click();
 });
+
+Cypress.Commands.add("applyButton", () => {
+  cy
+    .get("button > span")
+    .contains("Aplicar")
+    .click(); 
+});
