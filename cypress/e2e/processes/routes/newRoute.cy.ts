@@ -1,4 +1,4 @@
-// <reference types="cypress" />
+/// <reference types="cypress" />
 
 import { concierge, scale } from "../../../data/controlPoints";
 import { route } from "../../../data/routes";

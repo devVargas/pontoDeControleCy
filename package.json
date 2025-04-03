@@ -8,6 +8,7 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "test:report": "cypress run --reporter mochawesome",
+    "test:pesagem": "npx cypress run --spec cypress/e2e/weighing/weighing.cy.ts",
     "start:pdc": "cd pontoDeControle && debug.bat",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"

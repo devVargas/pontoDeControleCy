@@ -19,7 +19,8 @@ Cypress.Commands.add("login", () => {
     .type(user)
     .get("input[name=\"password\"]")
     .type(password, { log: false })
-    .get(".flex > .el-button")
+    // .get("form > .flex > .shadow-material") Versão 3.8
+    .get(".flex > .el-button") // Versão 3.9
     .click();
 });
 

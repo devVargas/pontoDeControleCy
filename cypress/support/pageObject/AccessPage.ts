@@ -2,4 +2,8 @@
 
 export class AccessPage {
     
+  public static newAccess() {
+
+  }
+
 }
