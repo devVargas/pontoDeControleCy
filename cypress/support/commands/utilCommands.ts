@@ -19,7 +19,7 @@ Cypress.Commands.add("login", () => {
     .type(user)
     .get("input[name=\"password\"]")
     .type(password, { log: false })
-    // .get("form > .flex > .shadow-material") Versão 3.8
+    // .get("form > .flex > .shadow-material") // Versão 3.8
     .get(".flex > .el-button") // Versão 3.9
     .click();
 });
@@ -42,12 +42,12 @@ Cypress.Commands.add("saveButton", () => {
     .click(); 
 });
 
-Cypress.Commands.add("forwardButton", () => {
+Cypress.Commands.add("forwardButton", (x?: Partial<Cypress.ClickOptions>) => {
   cy
-    .get(".mt-8 > .el-button--success")
+    .get(".el-button--success")
     .should("not.be.disabled")
     .contains("Avançar")
-    .click();
+    .click(x);
 });
 
 Cypress.Commands.add("applyButton", () => {

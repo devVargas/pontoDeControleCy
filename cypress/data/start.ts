@@ -1,5 +1,3 @@
-import { concierge } from "./controlPoints";
-
 export const start = [ 
   { 
     topBar: "QRCode App",

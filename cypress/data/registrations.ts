@@ -14,7 +14,7 @@ export const cadastros: CadastroItem[] = [
   {
     interface: "motoristas",
     data: {
-      name: "João",
+      name: "Ely",
       cpf: "00011122233",
       license: "00011122288",
       phone: "99999999999",
@@ -47,7 +47,7 @@ export const cadastros: CadastroItem[] = [
   {
     interface: "veiculos",
     data: {
-      plateNumber: "ABC1214",
+      plateNumber: "ABC1215",
       vehicleType: {
         name: "Caminhão",
         maxLoad: "74000",
@@ -68,7 +68,7 @@ export const cadastros: CadastroItem[] = [
   {
     interface: "produtos",
     data: {
-      name: "Milho1",
+      name: "Milho",
       code: "00011",
       description: "Observação Produto",
       variety: {
