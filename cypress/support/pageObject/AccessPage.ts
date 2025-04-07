@@ -16,8 +16,6 @@ export class AccessPage {
   }
     
   public static newAccess() {
-    
-
     cy.get(".self-end > .el-button--primary").click()
       .url()
       .should("include", "/acessos/novo")
@@ -116,7 +114,7 @@ export class AccessPage {
   }
 
   private static manageConference(conference: string) {
-    if(conference === this.variaveis.conferenceButton.modulo1){
+    if(conference === this.variaveis  .conferenceButton.modulo1){
       cy.log("ok");
     }else {
       cy
