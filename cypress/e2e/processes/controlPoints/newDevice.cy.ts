@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { concierge, scale } from "../../../data/controlPoints";
+import { concierge, scale, waitingRoom } from "../../../data/controlPoints";
 import { ControlPointPage } from "../../../support/pageObject/ControlPointPage";
 
 describe("Faz a validação do formulário de criação dos dispositivos, será montado uma S3 + Portaria", () => {
@@ -25,6 +25,14 @@ describe("Faz a validação do formulário de criação dos dispositivos, será 
     ControlPointPage.validateAlert();
     ControlPointPage.createGroup(concierge.name);
     ControlPointPage.setTabs(concierge.device);
+    ControlPointPage.validateAlert();
+  });
+  
+  it("Sala de espera", () => {
+    ControlPointPage.navigateToControlPoint();
+    ControlPointPage.createPoint(waitingRoom.type, waitingRoom.name);
+    ControlPointPage.validateAlert();
+    ControlPointPage.createGroup(waitingRoom.name);
     ControlPointPage.validateAlert();
   });
   

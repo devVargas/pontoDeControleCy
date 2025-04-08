@@ -33,20 +33,14 @@ export class RoutePage {
       .click();
   }
 
-  public static modelRoute(portaria: string, balanca: string) {
+  public static modelRoute(point: string) {
     cy.get("input[placeholder=\"Adicionar Ponto de Controle a rota\"]")
       .click()
-      .selectList(portaria)
-      .get("input[placeholder=\"Adicionar Ponto de Controle a rota\"]")
-      .click()
-      .selectList(balanca)
-      .get("input[placeholder=\"Adicionar Ponto de Controle a rota\"]")
-      .click()
-      .selectList(balanca)
-      .get("input[placeholder=\"Adicionar Ponto de Controle a rota\"]")
-      .click()
-      .selectList(portaria)
-      .get(".justify-end > .bg-primary")
+      .selectList(point);  
+  }
+
+  public static saveRoute() {
+    cy.get(".justify-end > .bg-primary")
       .click()
       .get(":nth-child(3) > .bg-primary")
       .click();

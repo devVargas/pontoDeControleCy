@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { Device } from "../../data/controlPoints";
+import { Device, waitingRoom } from "../../data/controlPoints";
 
 export class ControlPointPage {
     
@@ -85,6 +85,12 @@ export class ControlPointPage {
     cy.get("button.el-button > i.el-icon-plus")
       .click()
       .selectList(point);
+    if(point === waitingRoom.name) {
+      cy.applyButton()
+        .wait(1000)
+        .get(".justify-end > .el-button")
+        .click();
+    }
   }
 
   public static setTabs (devices: Device[]) {

@@ -20,7 +20,7 @@ export interface General {
   device: Device[]
 };
 
-export const scale = {
+export const scale: General = {
   type: "Balança",
   name: "Balança Integrada",
   device: [
@@ -46,7 +46,7 @@ export const scale = {
   ]
 };
 
-export const concierge = {
+export const concierge: General = {
   type: "Interno",
   name: "Portaria Integrada",
   device: [
@@ -63,7 +63,12 @@ export const concierge = {
       port2: "23"
     }
   ]
-  
+};
+
+export const waitingRoom: General = {
+  type: "Interno",
+  name: "Sala de Espera",
+  device: []
 };
 
 // export const camera = {

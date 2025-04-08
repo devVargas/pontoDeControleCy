@@ -1,6 +1,3 @@
-import { cadastros } from "./registrations";
-import { route } from "./routes";
-
 export const acess = [
 
   {
@@ -19,11 +16,5 @@ export const acess = [
       modulo4: "Peso Liquido (Carga - Descontos)"
     }
   },
-  {
-    route: route.nome,
-    vehicle: String(cadastros.find(item => item.interface === "veiculos")?.data.plateNumber),
-    driver: String(cadastros.find(item => item.interface === "motoristas")?.data.name),
-    product: String(cadastros.find(item => item.interface === "produtos")?.data.name)
-  }
   
 ];
